@@ -1,0 +1,40 @@
+[user]
+	name = Taha Afzal
+	email = tahaafzal5@hotmail.com
+[alias]
+	st = status
+	br = branch -v
+	ch = checkout
+	co = commit -m
+	log1 = log --format=oneline
+	last = log -1 HEAD
+	la = last
+	fe = fetch
+    	pul = pull
+	pus = push
+	sw = switch
+	su = submodule update --init --recursive
+	amend = --amend --no-edit
+	chp = cherry-pick
+	cl = clean -fdf
+	rebi = rebase -i 
+	st-pu = stash push -m
+	st-po = stash pop
+	st-ap = stash apply
+	st-dr = stash drop
+	st-sh = stash show
+[pull]
+	rebase = true
+[core]
+	editor = code --wait
+	excludesfile = ~/.gitignore_global
+[fetch]
+	prune = true
+[init]
+	defaultBranch = main
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
