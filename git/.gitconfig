@@ -14,9 +14,9 @@
 	pus = push
 	sw = switch
 	su = submodule update --init --recursive
-	amend = --amend --no-edit
 	chp = cherry-pick
 	cl = clean -fdf
+	res = restore
 	rebi = rebase -i 
 	st-pu = stash push -m
 	st-po = stash pop
