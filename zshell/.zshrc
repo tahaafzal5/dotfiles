@@ -10,5 +10,8 @@ autoload -U colors && colors
 PS1="%{$fg[green]%}%n@%m/%1d $ %{$reset_color%}% "
 
 alias ll="ls -alihp"
-alias rm="rm -i"
+alias la="ls -A"
+alias gk="gitk"
 alias gg="git gui"
+alias fd="fdfind"
+
