@@ -2,6 +2,18 @@
 set -o errexit
 set -o nounset
 
+export BLUE='\033[0;34m'
+export RED='\033[0;31m'
+export RESET='\033[0m'
+
+debug() {
+    echo -e "${BLUE}DEBUG:${RESET} $*"
+}
+
+error() {
+    echo -e "${RED}ERROR:${RESET} $*" >&2
+}
+
 install_homebrew() {
     if ! command -v brew &> /dev/null; then
         echo "Homebrew not found. Installing..."
