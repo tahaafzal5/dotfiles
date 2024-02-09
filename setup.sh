@@ -11,7 +11,19 @@ install_homebrew() {
     fi
 }
 
+install_dependencies() {
+    local dependencies=("stow" "git" "gitk" "git-gui")
+    
+    echo "Installing dependencies..."
+    for dependency in "${dependencies[@]}"; do
+        echo "\tInstalling $dependency..."
+        brew install "$dependency"
+    done
+}
+
 install_homebrew
+install_dependencies
+
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # mindepth to ignore the dotfiles directory itself
