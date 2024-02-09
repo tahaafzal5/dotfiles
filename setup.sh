@@ -16,19 +16,19 @@ error() {
 
 install_homebrew() {
     if ! command -v brew &> /dev/null; then
-        echo "Homebrew not found. Installing..."
+        debug "Homebrew not found. Installing..."
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     else
-        echo "Homebrew is already installed."
+        debug "Homebrew is already installed."
     fi
 }
 
 install_dependencies() {
     local dependencies=("stow" "git" "gitk" "git-gui")
     
-    echo "Installing dependencies..."
+    debug "Installing dependencies..."
     for dependency in "${dependencies[@]}"; do
-        echo "\tInstalling $dependency..."
+        debug "Installing $dependency..."
         brew install "$dependency"
     done
 }
@@ -43,17 +43,17 @@ DIRECTORIES=($(find "$SCRIPT_DIR" -mindepth 1 -maxdepth 1 -type d -not -name ".*
 
 SUCCESS=true
 for dir in "${DIRECTORIES[@]}"; do
-    echo "Setting up $dir..."
+    debug "Setting up $dir..."
     stow -R -v "$dir" -t ~/
 
     if [ $? -ne 0 ]; then
-        printf "\tERROR: Stow failed\n"
+        error "ERROR: Stow failed\n"
         SUCCESS=false
     fi
 done
 
 if [ "$SUCCESS" = true ]; then
-    echo "Setup completed successfully."
+    debug "Setup completed successfully."
 else
-    echo "Setup completed with errors."
+    debug "Setup completed with errors."
 fi
