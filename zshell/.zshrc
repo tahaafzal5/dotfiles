@@ -13,5 +13,4 @@ alias ll="ls -alihp"
 alias la="ls -A"
 alias gk="gitk"
 alias gg="git gui"
-alias fd="fdfind"
 
