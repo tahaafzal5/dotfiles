@@ -24,7 +24,7 @@ install_homebrew() {
 }
 
 install_dependencies() {
-    local dependencies=("stow" "git" "gitk" "git-gui")
+    local dependencies=("stow" "git" "gitk" "git-gui" "tldr")
     
     debug "Installing dependencies..."
     for dependency in "${dependencies[@]}"; do
