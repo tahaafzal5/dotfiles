@@ -17,6 +17,7 @@
 	chp = cherry-pick
 	cl = clean -fdf
 	res = restore
+	reb = rebase
 	rebi = rebase -i 
 	st-pu = stash push -m
 	st-po = stash pop
